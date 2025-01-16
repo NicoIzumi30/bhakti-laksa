@@ -1,7 +1,7 @@
 
-#  Website Rekapitulasi Nilai
+#  Bhakti Laksa Application
 
-Dokumentasi ini dibuat bertujuan untuk memudahkan developer dalam melakukan installasi project Rekapitulasi Nilai yang berbasis Codeigniter 3.
+Dokumentasi ini dibuat bertujuan untuk memudahkan developer dalam melakukan installasi project Bhakti Laksa yang berbasis Codeigniter 3.
 
 
 
@@ -23,11 +23,11 @@ Dokumentasi ini dibuat bertujuan untuk memudahkan developer dalam melakukan inst
 #### Clone the project
 
 ```bash
-  git clone -b backend-dev https://github.com/NicoIzumi30/rekapitulasi-nilai.git
+  git clone -b backend-dev https://github.com/NicoIzumi30/bhakti-laksa.git
 ```
 #### Go to the project directory
 ```bash
-  cd rekapitulasi-nilai
+  cd bhakti-laksa
 ```
 #### Install dependencies
 ```bash
