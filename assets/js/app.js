@@ -322,6 +322,6 @@ const inputs = document.getElementsByClassName("numeric-input");
   // Iterasi melalui semua elemen dan tambahkan event listener
   Array.from(inputs).forEach((input) => {
     input.addEventListener("input", function () {
-      this.value = this.value.replace(/[^0-9]/g, ""); // Hapus karakter non-angka
+      this.value = this.value.replace(/[^0-9.]/g, ""); // Hapus karakter non-angka
     });
   });

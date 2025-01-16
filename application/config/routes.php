@@ -74,7 +74,9 @@ $route['mata-kuliah/delete/(:num)'] = 'MataKuliahController/destroy/$1';
 
 // Mahasiswa
 $route['mahasiswa'] = 'MahasiswaController';
+$route['mahasiswa/create'] = 'MahasiswaController/create';
 $route['mahasiswa/store'] = 'MahasiswaController/store';
+$route['mahasiswa/edit/(:num)'] = 'MahasiswaController/edit/$1';
 $route['mahasiswa/update/(:num)'] = 'MahasiswaController/update/$1';
 $route['mahasiswa/delete/(:num)'] = 'MahasiswaController/destroy/$1';
 
