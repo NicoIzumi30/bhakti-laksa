@@ -5,7 +5,7 @@
 
 (function () {
 
-  $('#dataTableExample').DataTable({
+  $('#dataTable').DataTable({
     layout: {
       topEnd: {
         search: {

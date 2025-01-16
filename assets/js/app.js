@@ -3,9 +3,9 @@
 (function () {
 
   // Root css-variable value
-  const getCssVariableValue = function(variableName) {
+  const getCssVariableValue = function (variableName) {
     let hex = getComputedStyle(document.documentElement).getPropertyValue(variableName);
-    if ( hex && hex.length > 0 ) {
+    if (hex && hex.length > 0) {
       hex = hex.trim();
     }
     return hex;
@@ -14,17 +14,17 @@
   // Global variables
   window.config = {
     colors: {
-      primary        : getCssVariableValue('--bs-primary'),
-      secondary      : getCssVariableValue('--bs-secondary'),
-      success        : getCssVariableValue('--bs-success'),
-      info           : getCssVariableValue('--bs-info'),
-      warning        : getCssVariableValue('--bs-warning'),
-      danger         : getCssVariableValue('--bs-danger'),
-      light          : getCssVariableValue('--bs-light'),
-      dark           : getCssVariableValue('--bs-dark'),
-      gridBorder     : "rgba(77, 138, 240, .15)",
+      primary: getCssVariableValue('--bs-primary'),
+      secondary: getCssVariableValue('--bs-secondary'),
+      success: getCssVariableValue('--bs-success'),
+      info: getCssVariableValue('--bs-info'),
+      warning: getCssVariableValue('--bs-warning'),
+      danger: getCssVariableValue('--bs-danger'),
+      light: getCssVariableValue('--bs-light'),
+      dark: getCssVariableValue('--bs-dark'),
+      gridBorder: "rgba(77, 138, 240, .15)",
     },
-    fontFamily       : "'Roboto', Helvetica, sans-serif"
+    fontFamily: "'Roboto', Helvetica, sans-serif"
   }
 
 
@@ -65,9 +65,9 @@
   // 2: on navbar - for max-width 991px (mobile phone, tablet)
   if (sidebarTogglers.length) {
 
-    sidebarTogglers.forEach( toggler => {
+    sidebarTogglers.forEach(toggler => {
 
-      toggler.addEventListener('click', function(e) {
+      toggler.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector('.sidebar .sidebar-toggler').classList.toggle('active');
         if (window.matchMedia('(min-width: 992px)').matches) {
@@ -80,7 +80,7 @@
     });
 
     // To avoid layout issues, remove body and toggler classes on window resize.
-    window.addEventListener('resize', function(event) {
+    window.addEventListener('resize', function (event) {
       body.classList.remove('sidebar-folded', 'sidebar-open');
       document.querySelector('.sidebar .sidebar-toggler').classList.remove('active');
     }, true);
@@ -107,7 +107,7 @@
 
   // Add "active" class to nav-link based on url dynamically
   function addActiveClass(element) {
-    
+
     // Get parents of the 'el' with a selector (class, id, etc..)
     function getParents(el, selector) {
       const parents = [];
@@ -151,14 +151,14 @@
 
   if (sidebar) {
     const sidebarNavLinks = document.querySelectorAll('.sidebar .nav li a');
-    sidebarNavLinks.forEach( navLink => {
+    sidebarNavLinks.forEach(navLink => {
       addActiveClass(navLink);
     });
   }
 
   if (horizontalMenu) {
     const navbarNavLinks = document.querySelectorAll('.horizontal-menu .nav li a');
-    navbarNavLinks.forEach( navLink => {
+    navbarNavLinks.forEach(navLink => {
       addActiveClass(navLink);
     });
   }
@@ -185,7 +185,7 @@
   // Close sidebar on click outside in phone/tablet
   const mainWrapper = document.querySelector('.main-wrapper');
   if (sidebar) {
-    document.addEventListener('touchstart', function(e) {
+    document.addEventListener('touchstart', function (e) {
       if (e.target === mainWrapper && body.classList.contains('sidebar-open')) {
         body.classList.remove('sidebar-open');
         document.querySelector('.sidebar .sidebar-toggler').classList.remove('active');
@@ -207,14 +207,14 @@
       });
 
       // To avoid layout issues, remove body and toggler classes on window resize.
-      window.addEventListener('resize', function(event) {
+      window.addEventListener('resize', function (event) {
         bottomNavbar.classList.remove('header-toggled');
         horizontalMenuToggleButton.classList.remove('open');
         body.classList.remove('header-open');
       }, true);
     }
   }
-  
+
 
 
 
@@ -222,7 +222,7 @@
   if (horizontalMenu) {
     const navItems = document.querySelectorAll('.horizontal-menu .page-navigation >.nav-item');
     if (window.matchMedia('(max-width: 991px)').matches) {
-      navItems.forEach( function (navItem) {
+      navItems.forEach(function (navItem) {
         navItem.addEventListener('click', function () {
           if (!this.classList.contains('show-submenu')) {
             navItems.forEach(function (navItem) {
@@ -234,7 +234,7 @@
       });
     }
   }
-    
+
 
 
 
@@ -272,23 +272,23 @@
 
   if (clipboardButtons.length) {
 
-    clipboardButtons.forEach( btn => {
-      btn.addEventListener('mouseover', function() {
+    clipboardButtons.forEach(btn => {
+      btn.addEventListener('mouseover', function () {
         this.innerText = 'copy to clipboard';
       });
-      btn.addEventListener('mouseout', function() {
+      btn.addEventListener('mouseout', function () {
         this.innerText = 'copy';
       });
     });
 
     const clipboard = new ClipboardJS('.btn-clipboard');
 
-    clipboard.on('success', function(e) {
+    clipboard.on('success', function (e) {
       e.trigger.innerHTML = 'copied';
-      setTimeout(function() {
+      setTimeout(function () {
         e.trigger.innerHTML = 'copy';
         e.clearSelection();
-      },300)
+      }, 300)
     });
   }
 
@@ -298,3 +298,30 @@
   feather.replace();
 
 })();
+$('.btn-delete').on('click', function (e) {
+  e.preventDefault();
+  const href = $(this).attr('href');
+
+  Swal.fire({
+    title: 'Apakah anda yakin?',
+    text: "Data akan dihapus!",
+    icon: 'warning', // Tambahkan ikon di sini
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#e74c3c',
+    cancelButtonText: 'Kembali',
+    confirmButtonText: 'Hapus'
+  }).then((result) => {
+    if (result.isConfirmed) { // Ubah .value menjadi .isConfirmed
+      document.location.href = href;
+    }
+  });
+});
+const inputs = document.getElementsByClassName("numeric-input");
+
+  // Iterasi melalui semua elemen dan tambahkan event listener
+  Array.from(inputs).forEach((input) => {
+    input.addEventListener("input", function () {
+      this.value = this.value.replace(/[^0-9]/g, ""); // Hapus karakter non-angka
+    });
+  });
