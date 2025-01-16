@@ -1,0 +1,14 @@
+// Backdrop for header in mobile/tablet
+.header-open {
+  .horizontal-menu {
+    &::before {
+      content: '';
+      width: 100vw;
+      background: rgba($modal-backdrop-bg, $modal-backdrop-opacity);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }    
+  }
+}
