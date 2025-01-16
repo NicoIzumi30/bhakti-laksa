@@ -53,21 +53,34 @@ $route['default_controller'] = 'DashboardController';
 $route['404_override'] = '';
 $route['dashboard'] = 'DashboardController';
 
+// Program Studi
+$route['program-studi'] = 'ProgramStudiController';
+$route['program-studi/store'] = 'ProgramStudiController/store';
+$route['program-studi/update/(:num)'] = 'ProgramStudiController/update/$1';
+$route['program-studi/delete/(:num)'] = 'ProgramStudiController/destroy/$1';
+
+$route['dosen'] = 'DosenController';
+$route['dosen/create'] = 'DosenController/create';
+$route['dosen/store'] = 'DosenController/store';
+$route['dosen/edit/(:num)'] = 'DosenController/edit/$1';
+$route['dosen/update/(:num)'] = 'DosenController/update/$1';
+$route['dosen/delete/(:num)'] = 'DosenController/destroy/$1';
+
 // Matakuliah
 $route['mata-kuliah'] = 'MataKuliahController';
-$route['mata-kuliah/create'] = 'MataKuliahController/store';
+$route['mata-kuliah/store'] = 'MataKuliahController/store';
 $route['mata-kuliah/update/(:num)'] = 'MataKuliahController/update/$1';
 $route['mata-kuliah/delete/(:num)'] = 'MataKuliahController/destroy/$1';
 
 // Mahasiswa
 $route['mahasiswa'] = 'MahasiswaController';
-$route['mahasiswa/create'] = 'MahasiswaController/store';
+$route['mahasiswa/store'] = 'MahasiswaController/store';
 $route['mahasiswa/update/(:num)'] = 'MahasiswaController/update/$1';
 $route['mahasiswa/delete/(:num)'] = 'MahasiswaController/destroy/$1';
 
 
 $route['penilaian'] = 'PenilaianController';
-$route['penilaian/create'] = 'PenilaianController/store';
+$route['penilaian/store'] = 'PenilaianController/store';
 $route['penilaian/update/(:num)'] = 'PenilaianController/update/$1';
 $route['penilaian/delete/(:num)'] = 'PenilaianController/destroy/$1';
 
