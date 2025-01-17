@@ -19,6 +19,7 @@
 <script src="<?= base_url() ?>/assets/vendors/datatables.net/dataTables.js"></script>
 <script src="<?= base_url() ?>/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
 <script src="<?= base_url() ?>/assets/vendors/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= base_url() ?>/assets/vendors/dropify/dist/dropify.min.js"></script>
 <!-- End plugin js for this page -->
 
 <!-- inject:js -->
@@ -30,6 +31,7 @@
 <script src="<?= base_url() ?>/assets/js/dashboard.js"></script>
 <script src="<?= base_url() ?>/assets/js/fullcalendar.js"></script>
 <script src="<?= base_url() ?>/assets/js/data-table.js"></script>
+<script src="<?= base_url() ?>/assets/js/dropify.js"></script>
 <!-- End custom js for this page -->
 
 </body>

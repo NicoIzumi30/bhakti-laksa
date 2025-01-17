@@ -68,9 +68,12 @@ $route['dosen/delete/(:num)'] = 'DosenController/destroy/$1';
 
 // Matakuliah
 $route['mata-kuliah'] = 'MataKuliahController';
+$route['mata-kuliah/create'] = 'MataKuliahController/create';
 $route['mata-kuliah/store'] = 'MataKuliahController/store';
+$route['mata-kuliah/edit/(:num)'] = 'MataKuliahController/edit/$1';
 $route['mata-kuliah/update/(:num)'] = 'MataKuliahController/update/$1';
 $route['mata-kuliah/delete/(:num)'] = 'MataKuliahController/destroy/$1';
+$route['mata-kuliah/detail/(:num)'] = 'MataKuliahController/detail/$1';
 
 // Mahasiswa
 $route['mahasiswa'] = 'MahasiswaController';

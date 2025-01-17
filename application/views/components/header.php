@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/vendors/flatpickr/flatpickr.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/vendors/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/vendors/dropify/dist/dropify.min.css">
     <!-- End plugin css for this page -->
 
     <!-- inject:css -->
