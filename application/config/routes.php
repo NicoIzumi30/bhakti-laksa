@@ -89,8 +89,12 @@ $route['penilaian/store'] = 'PenilaianController/store';
 $route['penilaian/update/(:num)'] = 'PenilaianController/update/$1';
 $route['penilaian/delete/(:num)'] = 'PenilaianController/destroy/$1';
 
+// Profile
+$route['profile'] = 'ProfileController';
+$route['profile/update'] = 'ProfileController/update';
 
 
 $route['detail-penilaian/(:num)'] = 'PenilaianController/detail/$1';
 $route['login'] = 'LoginController';
+
 $route['translate_uri_dashes'] = FALSE;

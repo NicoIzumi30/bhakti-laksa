@@ -20,9 +20,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?=base_url('rekapitulasi-nilai')?>" class="nav-link">
+                <a href="<?=base_url('penilaian')?>" class="nav-link">
                     <i class="link-icon" data-feather="trello"></i>
-                    <span class="link-title">Rekapitulasi Nilai</span>
+                    <span class="link-title">Penilaian</span>
                 </a>
             </li>
             <li class="nav-item nav-category">Master Data</li>
