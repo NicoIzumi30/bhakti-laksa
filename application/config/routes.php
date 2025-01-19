@@ -85,7 +85,10 @@ $route['mahasiswa/delete/(:num)'] = 'MahasiswaController/destroy/$1';
 
 
 $route['penilaian'] = 'PenilaianController';
+$route['penilaian/create/(:num)'] = 'PenilaianController/create/$1';
+$route['penilaian/detail/(:num)'] = 'PenilaianController/detail/$1';
 $route['penilaian/store'] = 'PenilaianController/store';
+$route['penilaian/edit/(:num)'] = 'PenilaianController/edit/$1';
 $route['penilaian/update/(:num)'] = 'PenilaianController/update/$1';
 $route['penilaian/delete/(:num)'] = 'PenilaianController/destroy/$1';
 

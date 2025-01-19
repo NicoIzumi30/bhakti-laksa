@@ -12,7 +12,7 @@ class PenilaianController extends CI_Controller {
         $this->load->view('pages/penilaian/index');
         $this->load->view('components/footer');
     } 
-    public function create(){
+    public function create($id){
         $this->load->view('components/header');
         $this->load->view('components/sidebar');
         $this->load->view('components/navbar');

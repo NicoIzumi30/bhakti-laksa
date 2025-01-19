@@ -11,7 +11,7 @@
             <div class="row flex-grow-1">
             <div class="col-md-4 grid-margin stretch-card">
                     <div class="card card-custom">
-                        <a href="#">
+                        <a href="<?=base_url('penilaian/detail/1')?>">
                         <img src="<?= base_url('assets/images/background/1.svg') ?>" class="img-card-custom" alt="...">
 
                         <div class="card-body">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card card-custom">
-                        <a href="#">
+                        <a href="<?=base_url('penilaian/detail/1')?>">
                         <img src="<?= base_url('assets/images/background/2.svg') ?>" class="img-card-custom" alt="...">
 
                         <div class="card-body">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card card-custom">
-                        <a href="#">
+                        <a href="<?=base_url('penilaian/detail/1')?>">
                         <img src="<?= base_url('assets/images/background/5.svg') ?>" class="img-card-custom" alt="...">
 
                         <div class="card-body">
@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card card-custom">
-                        <a href="#">
+                        <a href="<?=base_url('penilaian/detail/1')?>">
                         <img src="<?= base_url('assets/images/background/7.svg') ?>" class="img-card-custom" alt="...">
 
                         <div class="card-body">
