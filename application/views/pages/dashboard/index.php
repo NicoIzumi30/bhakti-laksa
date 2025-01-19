@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-3 grid-margin stretch-card">
                     <div class="card">
-                        <div class="card-header bg-dark"></div>
+                        <div class="card-header bg-success"></div>
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-baseline">
                                 <h4 class="card-title mb-0">Dosen</h4>

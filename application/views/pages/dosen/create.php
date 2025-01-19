@@ -24,7 +24,7 @@
                             <div class="mb-3">
                                 <label for="nik" class="form-label">Nomor Induk Karyawan</label>
                                 <input type="text" class="form-control numeric-input" name="nik" id="nik" autocomplete="off"
-                                    placeholder="Masukan Nama NIK">
+                                    placeholder="Masukan NIK">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">

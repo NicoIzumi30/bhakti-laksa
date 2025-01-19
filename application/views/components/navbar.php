@@ -30,13 +30,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="w-30px h-30px ms-1 rounded-circle" src="https://via.placeholder.com/30x30"
+                        <img class="w-30px h-30px ms-1 rounded-circle" src="<?=base_url('assets/images/user.jpg')?>"
                             alt="profile">
                     </a>
                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                         <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                             <div class="mb-3">
-                                <img class="w-80px h-80px rounded-circle" src="https://via.placeholder.com/80x80"
+                                <img class="w-80px h-80px rounded-circle" src="<?=base_url('assets/images/user.jpg')?>"
                                     alt="">
                             </div>
                             <div class="text-center">
