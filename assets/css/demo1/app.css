@@ -1,0 +1,18 @@
+.img-card-custom{
+    height: 8rem;
+    width: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.card-title-custom{
+    font-size: 1.2rem !important;
+    color: #000 !important;
+}
+.card-custom{
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-custom:hover{
+    transform: scale(1.03);
+}
