@@ -48,7 +48,8 @@
                         <div class="card" style="border-radius: 0.7rem;">
                             <div class="row">
                                 <div class="col-md-4 pe-md-0">
-                                    <div class="auth-side-wrapper" style="background-image: url(<?=base_url('assets/images/background/login.jpg')?>);border-radius: 0.7rem">
+                                    <div class="auth-side-wrapper"
+                                        style="background-image: url(<?= base_url('assets/images/background/login.jpg') ?>);border-radius: 0.7rem">
 
                                     </div>
                                 </div>
@@ -69,9 +70,10 @@
                                                     autocomplete="current-password" placeholder="Password">
                                             </div>
                                             <div>
-                                                <button class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
+                                                <button
+                                                    class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
                                             </div>
-                                           
+
                                         </form>
                                     </div>
                                 </div>
