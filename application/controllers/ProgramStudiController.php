@@ -18,6 +18,7 @@ class ProgramStudiController extends CI_Controller
         $this->load->view('pages/programStudi/index', $data);
         $this->load->view('components/footer');
     }
+    
     public function store()
     {
         $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
@@ -30,8 +31,8 @@ class ProgramStudiController extends CI_Controller
             $uuid = Uuid::uuid4()->toString();
             $data = [
                 'id' => $uuid,
-                'faculty' => $this->input->post('fakultas'),
-                'name' => $this->input->post('prodi'),
+                'faculty' => htmlspecialchars($this->input->post('fakultas')),
+                'name' => htmlspecialchars($this->input->post('prodi')),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ];
@@ -49,8 +50,8 @@ class ProgramStudiController extends CI_Controller
             redirect('/program-studi');
         } else {
             $data = [
-                'faculty' => $this->input->post('fakultas'),
-                'name' => $this->input->post('prodi'),
+                'faculty' => htmlspecialchars($this->input->post('fakultas')),
+                'name' => htmlspecialchars($this->input->post('prodi')),
                 'updated_at' => date('Y-m-d H:i:s')
             ];
             $this->ProgramStudi->update($id, $data);
