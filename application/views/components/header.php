@@ -41,7 +41,43 @@
     <!-- End layout styles -->
 
     <link rel="shortcut icon" href="<?= base_url() ?>/assets/images/favicon.png" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
+
+    <script>
+        function toast(status, message, speed = 300) {
+            let title = 'Success'
+            if (status == 'error') {
+                title = 'Failed'
+            }
+            new Notify({
+                status: status,
+                title: title,
+                text: message,
+                effect: 'fade',
+                speed: speed,
+                customClass: '',
+                customIcon: '',
+                showIcon: true,
+                showCloseButton: true,
+                autoclose: true,
+                autotimeout: 1000,
+                notificationsGap: null,
+                notificationsPadding: null,
+                type: 'outline',
+                position: 'right top',
+                customWrapper: '',
+            })
+        }
+    </script>
 </head>
 
 <body>
     <div class="main-wrapper">
+    <?php if ($this->session->flashdata('error')) {
+        echo error_notification($this->session->flashdata('error'));
+    } ?>
+    <?php if ($this->session->flashdata('success')) {
+        echo success_notification($this->session->flashdata('success'));
+    } ?>
