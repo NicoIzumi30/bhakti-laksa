@@ -4,50 +4,60 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Mahasiswa extends CI_Model
 {
 
-    private $table = 'students'; 
+    private $table = 'students';
 
-    public function insert($data)
+    public function create($data)
     {
-        return $this->db->insert($this->table, $data);
+        $query = $this->db->insert($this->table, $data);
+        if ($query) {
+            $this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+        } else {
+            $this->session->set_flashdata('error', 'Data gagal ditambahkan');
+        }
+        return redirect('mahasiswa');
     }
     public function getAll()
     {
-        return $this->db->get($this->table)->result();
+        $this->db->select('students.*, study_programs.name as study_program_name');
+        $this->db->from($this->table);
+        $this->db->join('study_programs', 'study_programs.id = students.study_program_id');
+        return $this->db->get()->result();
     }
-    public function getAllNoInput($matkul_id)
-    {
-        $this->db->select('mahasiswa.*');
-        $this->db->from('mahasiswa');
-        $this->db->join('penilaian', 'mahasiswa.id = penilaian.mahasiswa_id AND penilaian.mata_kuliah_id = ' . $this->db->escape($matkul_id), 'left');
-        $this->db->where('penilaian.id IS NULL');
-        $query = $this->db->get();
-        return $query->result();
-    }
+
     public function getById($id)
     {
-        return $this->db->get_where($this->table, ['id' => $id])->row();
+        $this->db->select('students.*, study_programs.name as study_program_name');
+        $this->db->from($this->table);
+        $this->db->join('study_programs', 'study_programs.id = students.study_program_id');
+        $this->db->where('students.id', $id);
+        return $this->db->get()->row();
     }
+
     public function update($id, $data)
     {
-        return $this->db->update($this->table, $data, ['id' => $id]);
+        $this->db->where('id', $id);
+        $query = $this->db->update($this->table, $data);
+        if ($query) {
+            $this->session->set_flashdata('success', 'Data berhasil diubah');
+        } else {
+            $this->session->set_flashdata('error', 'Data gagal diubah');
+        }
+        return redirect('mahasiswa');
     }
     public function delete($id)
     {
-        return $this->db->delete($this->table, ['id' => $id]);
+        $this->db->where('id', $id);
+        $query = $this->db->delete($this->table);
+        if ($query) {
+            $this->session->set_flashdata('success', 'Data berhasil dihapus');
+        } else {
+            $this->session->set_flashdata('error', 'Data gagal dihapus');
+        }
+        return redirect('dosen');
     }
     public function count()
     {
         return $this->db->count_all($this->table);
     }
-    public function count_all_inputed($matkul_id)
-    {
-        $this->db->where('mata_kuliah_id', $matkul_id);
-        return $this->db->count_all_results('penilaian');
-    }
-    public function count_all_not_inputed($matkul_id)
-    {
-        $this->db->join('penilaian', 'mahasiswa.id = penilaian.mahasiswa_id AND penilaian.mata_kuliah_id = ' . $this->db->escape($matkul_id), 'left');
-        $this->db->where('penilaian.id IS NULL');
-        return $this->db->count_all_results($this->table);
-    }
+
 }

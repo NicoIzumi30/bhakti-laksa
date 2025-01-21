@@ -30,19 +30,24 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                $no = 1;
+                                foreach ($data as $row):
+                                ?>
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Heru Kristanto</td>
-                                    <td>23.01.5047</td>
-                                    <td>herukristanto@students.amikom.ac.id</td>
-                                    <td>D3 Teknik Informatika</td>
-                                    <td>2023</td>
-                                    <td>30-12-2004</td>
+                                    <td class="text-center"><?=$no++?></td>
+                                    <td><?=$row->name?></td>
+                                    <td><?=$row->nim?></td>
+                                    <td><?=$row->email?></td>
+                                    <td><?=$row->study_program_name?></td>
+                                    <td><?=$row->class_of?></td>
+                                    <td><?= $row->birth_date; ?></td>
                                     <td class="text-center">
-                                        <a href="<?=base_url('mahasiswa/edit/1')?>" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="<?=base_url('mahasiswa/delete')?>" class="btn btn-danger btn-delete btn-sm">Delete</a>
+                                        <a href="<?=base_url('mahasiswa/edit/'.$row->id)?>" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="<?=base_url('mahasiswa/delete/'.$row->id)?>" class="btn btn-danger btn-delete btn-sm">Delete</a>
                                     </td>
                                 </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

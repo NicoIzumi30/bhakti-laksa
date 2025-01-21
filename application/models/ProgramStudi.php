@@ -11,6 +11,10 @@ class ProgramStudi extends CI_Model
     public function getAll(){
         return $this->db->get($this->table)->result();
     } 
+    public function getList(){
+        $this->db->select('id,name');
+        return $this->db->get($this->table)->result();
+    } 
     public function getFaculties(){
         return [
         0 => ['value' => 'Fakultas Ilmu Komputer', 'name' => 'Fakultas Ilmu Komputer'],

@@ -10,14 +10,15 @@
                         </div>
                     </div>
                 </div>
-                <form action="<?= base_url('mahasiswa/store') ?>" method="post">
+                <form action="<?= base_url('mahasiswa/create') ?>" method="post">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama Mahasiswa</label>
-                                <input type="text" class="form-control" name="nama" id="nama" autocomplete="off"
+                                <label for="name" class="form-label">Nama Mahasiswa</label>
+                                <input type="text" class="form-control" name="name" id="name" autocomplete="off"
                                     placeholder="Masukan Nama Mahasiswa">
+                                    <?= form_error('name', '<small class="text-danger">', '</small>')?>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -25,6 +26,7 @@
                                 <label for="nim" class="form-label">Nomor Induk Mahasiswa</label>
                                 <input type="text" class="form-control numeric-input" name="nim" id="nim" autocomplete="off"
                                     placeholder="Masukan NIM">
+                                    <?= form_error('nim', '<small class="text-danger">', '</small>')?>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -32,30 +34,35 @@
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" name="email" id="email" autocomplete="off"
                                     placeholder="Masukan Email Mahasiswa">
+                                    <?= form_error('email', '<small class="text-danger">', '</small>')?>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="prodi" class="form-label">Program Studi</label>
-                                <select name="prodi" id="prodi" class="form-select">
+                                <select name="prodi_id" id="prodi" class="form-select">
                                     <option selected disabled>Pilih Program Studi</option>
-                                    <option value="Teknik Informatika">Teknik Informatika</option>
-                                    <option value="Sistem Informasi">Sistem Informasi</option>
+                                    <?php foreach($study_programs as $prodi): ?>
+                                        <option value="<?=$prodi->id?>"><?=$prodi->name?></option>
+                                    <?php endforeach;?>
                                 </select>
+                                <?= form_error('prodi_id', '<small class="text-danger">', '</small>')?>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-3">
-                                <label for="angkatan" class="form-label">Tahun Angkatan</label>
-                                <input type="text" class="form-control numeric-input" name="angkatan" id="angkatan" autocomplete="off"
+                                <label for="class_of" class="form-label">Tahun Angkatan</label>
+                                <input type="text" class="form-control numeric-input" name="class_of" id="class_of" autocomplete="off"
                                     placeholder="Masukan Tahun Angkatan">
+                                    <?= form_error('class_of', '<small class="text-danger">', '</small>')?>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-3">
-                            <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" autocomplete="off"
+                            <label for="birth_date" class="form-label">Tanggal Lahir</label>
+                            <input type="date" class="form-control" name="birth_date" id="birth_date" autocomplete="off"
                                 placeholder="Masukan Tanggal Lahir Mahasiswa">
+                                <?= form_error('birth_date', '<small class="text-danger">', '</small>')?>
                             </div>
                         </div>
                     </div>
