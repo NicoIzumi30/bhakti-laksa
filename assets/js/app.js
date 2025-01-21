@@ -325,3 +325,28 @@ const inputs = document.getElementsByClassName("numeric-input");
       this.value = this.value.replace(/[^0-9.]/g, ""); // Hapus karakter non-angka
     });
   });
+
+  function toast(status, message, speed = 300) {
+    let title = 'Success'
+    if (status == 'error') {
+        title = 'Failed'
+    }
+    new Notify({
+        status: status,
+        title: title,
+        text: message,
+        effect: 'fade',
+        speed: speed,
+        customClass: '',
+        customIcon: '',
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 1000,
+        notificationsGap: null,
+        notificationsPadding: null,
+        type: 'outline',
+        position: 'right top',
+        customWrapper: '',
+    })
+}

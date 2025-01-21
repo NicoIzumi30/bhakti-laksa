@@ -99,5 +99,6 @@ $route['profile/update'] = 'ProfileController/update';
 
 $route['detail-penilaian/(:num)'] = 'PenilaianController/detail/$1';
 $route['login'] = 'AuthController';
+$route['logout'] = 'AuthController/logout';
 
 $route['translate_uri_dashes'] = FALSE;

@@ -1,8 +1,9 @@
+<?php $user = get_user() ?>
 <div class="page-content">
 
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
-            <h4 class="mb-3 mb-md-0">Welcome to Dashboard, Heru Kristanto</h4>
+            <h4 class="mb-3 mb-md-0">Welcome to Dashboard, <?= $user->name; ?></h4>
         </div>
     </div>
 
