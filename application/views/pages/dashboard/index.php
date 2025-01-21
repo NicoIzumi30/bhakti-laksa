@@ -19,7 +19,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6 col-md-12 col-xl-5">
-                                    <h3 class="mb-2">19</h3>
+                                    <h3 class="mb-2"><?= $totalProgramStudi; ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6 col-md-12 col-xl-5">
-                                    <h3 class="mb-2">108</h3>
+                                    <h3 class="mb-2"><?= $totalDosen; ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6 col-md-12 col-xl-5">
-                                    <h3 class="mb-2">10,301</h3>
+                                    <h3 class="mb-2"><?= $totalMahasiswa; ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6 col-md-12 col-xl-5">
-                                    <h3 class="mb-2">403</h3>
+                                    <h3 class="mb-2"><?= $totalMataKuliah; ?></h3>
                                 </div>
                             </div>
                         </div>

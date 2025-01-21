@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Mahasiswa extends CI_Model
 {
 
-    private $table = 'mahasiswa'; // Nama tabel di database
+    private $table = 'students'; 
 
     public function insert($data)
     {
@@ -35,7 +35,7 @@ class Mahasiswa extends CI_Model
     {
         return $this->db->delete($this->table, ['id' => $id]);
     }
-    public function count_all()
+    public function count()
     {
         return $this->db->count_all($this->table);
     }

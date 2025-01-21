@@ -4,8 +4,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class MataKuliah extends CI_Model
 {
 
-    private $table = 'mata_kuliah'; // Nama tabel di database
+    private $table = 'lectures';
 
+    public function count()
+    {
+        return $this->db->count_all($this->table);
+    }
     public function insert($data)
     {
         return $this->db->insert($this->table, $data);

@@ -25,7 +25,7 @@
     <!-- endinject -->
 
     <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->   
+    <!-- End plugin css for this page -->
 
     <!-- inject:css -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/fonts/feather-font/css/iconfont.css">
@@ -38,6 +38,34 @@
     <link rel="shortcut icon" href="<?= base_url() ?>/assets/images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css" />
     <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
+
+    <script>
+        function toast(status, message, speed = 300) {
+            let title = 'Success'
+            if (status == 'error') {
+                title = 'Failed'
+            }
+            new Notify({
+                status: status,
+                title: title,
+                text: message,
+                effect: 'fade',
+                speed: speed,
+                customClass: '',
+                customIcon: '',
+                showIcon: true,
+                showCloseButton: true,
+                autoclose: true,
+                autotimeout: 1000,
+                notificationsGap: null,
+                notificationsPadding: null,
+                type: 'outline',
+                position: 'right top',
+                customWrapper: '',
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -61,18 +89,19 @@
                                         <a href="#" class="nobleui-logo d-block mb-2">Bhakti <span>Laksa</span></a>
                                         <h5 class="text-secondary fw-normal mb-4">Welcome back! Log in to your account.
                                         </h5>
-                                        <form class="forms-sample" action="<?=base_url('login')?>" method="post">
+                                        <form class="forms-sample" action="<?= base_url('login') ?>" method="post">
                                             <div class="mb-3">
                                                 <label for="userEmail" class="form-label">Email </label>
                                                 <input type="email" class="form-control" name="email" id="userEmail"
                                                     placeholder="Email">
-                                                    <?php echo form_error('email', '<small class="email">', '</small>'); ?>
+                                                <?php echo form_error('email', '<small class="email">', '</small>'); ?>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="userPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" name="password" id="userPassword"
-                                                    autocomplete="current-password" placeholder="Password">
-                                                    <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>
+                                                <input type="password" class="form-control" name="password"
+                                                    id="userPassword" autocomplete="current-password"
+                                                    placeholder="Password">
+                                                <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>
                                             </div>
                                             <div>
                                                 <button type="submit"
@@ -97,7 +126,6 @@
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
-    <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
     <!-- End plugin js for this page -->
 
     <!-- inject:js -->
@@ -105,8 +133,12 @@
     <script src="<?= base_url() ?>/assets/js/app.js"></script>
     <!-- endinject -->
 
-    <?php if($this->session->flashdata('error')){echo error_notification($this->session->flashdata('error'));} ?>
-    <?php if($this->session->flashdata('success')){echo success_notification($this->session->flashdata('success'));} ?>
+    <?php if ($this->session->flashdata('error')) {
+        echo error_notification($this->session->flashdata('error'));
+    } ?>
+    <?php if ($this->session->flashdata('success')) {
+        echo success_notification($this->session->flashdata('success'));
+    } ?>
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
 
