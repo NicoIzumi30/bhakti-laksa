@@ -46,3 +46,11 @@ if (!function_exists('get_user')) {
 
     }
 }
+if (!function_exists('get_last_id')) {
+    function get_last_id($table)
+    {
+        $ci =& get_instance();
+        $last_id = $ci->db->select('id')->order_by('created_at', 'DESC')->limit(1)->get($table)->row();
+        return $last_id->id;
+    }
+}

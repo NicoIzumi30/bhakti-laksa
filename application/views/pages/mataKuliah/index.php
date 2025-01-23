@@ -29,17 +29,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                $no = 1;
+                                foreach ($data as $row) : ?>
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Backend Web Development</td>
-                                    <td>D3 Teknik Informatika</td>
-                                    <td>firman@amikom.ac.id</td>
-                                    <td>Materi & Praktikum</td>
+                                    <td class="text-center"><?= $no++; ?></td>
+                                    <td><?=$row->name?></td>
+                                    <td><?= $row->study_program_name; ?></td>
+                                    <td><?= $row->dosen_name; ?></td>
+                                    <td><?= $row->learning_type; ?></td>
                                     <td class="text-center">
-                                        <a href="<?=base_url('mata-kuliah/edit/1')?>" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="<?=base_url('mata-kuliah/delete')?>" class="btn btn-danger btn-delete btn-sm">Delete</a>
-                                        <a href="<?=base_url('mata-kuliah/detail/1')?>" class="btn btn-info btn-sm">Detail</a>
+                                        <a href="<?=base_url('mata-kuliah/edit/'.$row->id)?>" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="<?=base_url('mata-kuliah/delete/'.$row->id)?>" class="btn btn-danger btn-delete btn-sm">Delete</a>
+                                        <a href="<?=base_url('mata-kuliah/detail/'.$row->id)?>" class="btn btn-info btn-sm">Detail</a>
                                     </td>
+                                    <?php endforeach ?>
                                 </tr>
                             </tbody>
                         </table>

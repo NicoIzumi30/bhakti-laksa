@@ -10,46 +10,51 @@
                         </div>
                     </div>
                 </div>
-                <form action="<?= base_url('mata-kuliah/store') ?>" method="post">
+                <form action="<?= base_url('mata-kuliah/create') ?>" method="post">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Mata Kuliah</label>
-                                    <input type="text" class="form-control" name="nama" id="nama" autocomplete="off"
+                                    <label for="name" class="form-label">Nama Mata Kuliah</label>
+                                    <input type="text" class="form-control" name="name" id="name" autocomplete="off"
                                         placeholder="Masukan Nama Mata Kuliah">
+                                        <?= form_error('name', '<small class="text-danger">', '</small>')?>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="prodi" class="form-label">Program Studi</label>
-                                    <select name="prodi" id="prodi" class="form-select">
+                                    <select name="prodi_id" id="prodi" class="form-select">
                                         <option selected disabled>Pilih Program Studi</option>
-                                        <option value="Teknik Informatika">Teknik Informatika</option>
-                                        <option value="Sistem Informasi">Sistem Informasi</option>
+                                        <?php foreach($study_programs as $prodi): ?>
+                                            <option value="<?=$prodi->id?>"><?=$prodi->name?></option>
+                                        <?php endforeach;?>
                                     </select>
+                                    <?= form_error('prodi_id', '<small class="text-danger">', '</small>')?>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="dosen" class="form-label">Dosen</label>
-                                    <select name="dosen" id="dosen" class="form-select">
+                                    <select name="dosen_id" id="dosen" class="form-select">
                                         <option selected disabled>Pilih Dosen</option>
-                                        <option value="Dosen 1">Dosen 1</option>
-                                        <option value="Dosen 2">Dosen 2</option>
-                                        <option value="Dosen 3">Dosen 3</option>
+                                        <?php foreach($dosen as $row): ?>
+                                            <option value="<?=$row->id?>"><?=$row->name?></option>
+                                        <?php endforeach;?>
                                     </select>
+                                    <?= form_error('dosen_id', '<small class="text-danger">', '</small>')?>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label for="tipe_pembelajaran" class="form-label">Tipe Pembelajaran</label>
-                                    <select name="tipe_pembelajaran" id="tipe_pembelajaran" class="form-select">
+                                    <label for="type" class="form-label">Tipe Pembelajaran</label>
+                                    <select name="type" id="type" class="form-select">
                                         <option selected disabled>Pilih Tipe Pembelajaran</option>
                                         <option value="Materi">Materi</option>
                                         <option value="Praktikum">Praktikum</option>
                                         <option value="Materi dan Praktikum">Materi dan Praktikum</option>
                                     </select>
+                                    <?= form_error('type', '<small class="text-danger">', '</small>')?>
                                 </div>
                             </div>
                         </div>

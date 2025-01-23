@@ -11,6 +11,10 @@ class User extends CI_Model
     public function getDosen(){
         return $this->db->where('role', 'dosen')->get($this->table)->result();
     } 
+    public function listDosen(){
+        $this->db->select('id, name');
+        return $this->db->where('role', 'dosen')->get($this->table)->result();
+    } 
     public function getById($id){
         return $this->db->get_where($this->table, ['id' => $id])->row();
     } 

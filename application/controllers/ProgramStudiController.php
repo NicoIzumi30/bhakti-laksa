@@ -18,7 +18,10 @@ class ProgramStudiController extends CI_Controller
         $this->load->view('pages/programStudi/index', $data);
         $this->load->view('components/footer');
     }
-    
+    public function getList(){
+        $this->db->select('id,name');
+        
+    } 
     public function store()
     {
         $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
