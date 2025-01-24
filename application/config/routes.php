@@ -71,9 +71,10 @@ $route['mata-kuliah'] = 'MataKuliahController';
 $route['mata-kuliah/create'] = 'MataKuliahController/create';
 $route['mata-kuliah/store'] = 'MataKuliahController/store';
 $route['mata-kuliah/edit/(:any)'] = 'MataKuliahController/edit/$1';
-$route['mata-kuliah/update/(:any)'] = 'MataKuliahController/update/$1';
 $route['mata-kuliah/delete/(:any)'] = 'MataKuliahController/destroy/$1';
-$route['mata-kuliah/detail/(:any)'] = 'MataKuliahController/detail/$1';
+$route['mata-kuliah/student-course/(:any)'] = 'MataKuliahController/studentCourse/$1';
+$route['mata-kuliah/student-course/create/(:any)'] = 'MataKuliahController/studentCourseCreate/$1';
+$route['mata-kuliah/student-course/delete/(:any)/(:any)'] = 'MataKuliahController/studentCourseDestroy/$1/$2';
 
 // Mahasiswa
 $route['mahasiswa'] = 'MahasiswaController';

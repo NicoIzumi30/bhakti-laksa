@@ -41,7 +41,7 @@
                                     <td class="text-center">
                                         <a href="<?=base_url('mata-kuliah/edit/'.$row->id)?>" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="<?=base_url('mata-kuliah/delete/'.$row->id)?>" class="btn btn-danger btn-delete btn-sm">Delete</a>
-                                        <a href="<?=base_url('mata-kuliah/detail/'.$row->id)?>" class="btn btn-info btn-sm">Detail</a>
+                                        <a href="<?=base_url('mata-kuliah/student-course/'.$row->id)?>" class="btn btn-info btn-sm">Detail</a>
                                     </td>
                                     <?php endforeach ?>
                                 </tr>
