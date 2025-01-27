@@ -9,46 +9,46 @@
             <div class="card">
                 <div class="card-body">
                     <div class="mt-3 text-center">
-                        <img src="<?= base_url('assets/images/user.jpg') ?>"
-                            style="width: 200px; height: 200px; border-radius: 50%;" alt="profile image">
+                        <img src="<?php echo(get_image_profile()) ?>"
+                            style="max-width: 180px; max-height: 180px; border-radius: 50%;" alt="profile image">
                     </div>
-                    <h3 class="card-title mt-5 text-center" style="font-size:1.3rem">Heru Kristanto</h3>
-                    <div class="mt-3 mx-3">
+                    <h3 class="card-title mt-5 text-center" style="font-size:1.3rem;text-transform: none;"><?= $user->name; ?></h3>
+                    <div class="mt-3 mx-3 table-responsive">
                         <table class="table">
                             <tr>
                                 <td>Email</td>
                                 <td>:</td>
-                                <td>herukristanto@mail.com</td>
+                                <td><?= $user->email; ?></td>
                             </tr>
                             <tr>
                                 <td>NIK</td>
                                 <td>:</td>
-                                <td>3402053012040001</td>
+                                <td><?= $user->nik; ?></td>
                             </tr>
                             <tr>
                                 <td>Jenis Kelamin</td>
                                 <td>:</td>
-                                <td>Laki Laki</td>
+                                <td><?= $user->gender; ?></td>
                             </tr>
                             <tr>
                                 <td>No Telepon</td>
                                 <td>:</td>
-                                <td>0859126462972</td>
+                                <td><?= $user->phone_number; ?></td>
                             </tr>
                             <tr>
                                 <td>Tanggal Lahir</td>
                                 <td>:</td>
-                                <td>30-12-2004</td>
+                                <td><?= $user->birth_date; ?></td>
                             </tr>
                             <tr>
                                 <td>Role</td>
                                 <td>:</td>
-                                <td>Admin</td>
+                                <td><?= $user->role; ?></td>
                             </tr>
                             <tr>
                                 <td>Bergabung Sejak</td>
                                 <td>:</td>
-                                <td>30-112-2024</td>
+                                <td><?= $user->created_at; ?></td>
                             </tr>
                         </table>
                     </div>
@@ -61,25 +61,25 @@
                 <div class="card-header">
                     <h4 class="">Edit Profile</h4>
                 </div>
-                <form>
+                <form action="<?=base_url('profile/update')?>" method="POST" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="Heru Kristanto">
+                            <input type="text" class="form-control" id="nama" name="name" value="<?=$user->name?>">
                         </div>
                         <div class="mb-3">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                value="herukristanto@mail.com">
+                                value="<?=$user->email?>">
                         </div>
                         <div class="mb-3">
                             <label for="no_telepon">No Telepon</label>
-                            <input type="text" class="form-control" id="no_telepon" name="no_telepon"
-                                value="0859126462972">
+                            <input type="text" class="form-control" id="no_telepon" name="phone_number"
+                                value="<?=$user->phone_number?>">
                         </div>
                         <div class="mb-3">
                             <label for="myDropify">Image Profile</label>
-                            <input type="file"
+                            <input name="image" type="file"
                                 accept="image/*"
                                 id="myDropify" />
                         </div>
@@ -93,7 +93,7 @@
                 <div class="card-header">
                     <h4 class="">Ubah Password</h4>
                 </div>
-                <form>
+                <form action="<?=base_url('profile/change-password')?>" method="POST">
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="password">Password Lama</label>

@@ -96,6 +96,7 @@ $route['penilaian/delete/(:any)'] = 'PenilaianController/destroy/$1';
 // Profile
 $route['profile'] = 'ProfileController';
 $route['profile/update'] = 'ProfileController/update';
+$route['profile/change-password'] = 'ProfileController/change_password';
 
 
 $route['detail-penilaian/(:any)'] = 'PenilaianController/detail/$1';

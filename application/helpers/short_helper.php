@@ -14,6 +14,21 @@ if (!function_exists('error_notification')) {
     }
 }
 
+if(!function_exists('get_image_profile')) {
+    function get_image_profile()
+    {
+        $ci =& get_instance();
+        $user_id = $ci->session->userdata('user_id');
+        $ci->db->where('id', $user_id);
+        $result = $ci->db->get('users')->row();
+        if($result->path != null) {
+            return base_url() . $result->path;
+        }else{
+            return base_url() . 'assets/images/user.jpg';
+        }
+    }
+}
+
 if (!function_exists('dd')) {
     function dd($data, $exit = true)
     {

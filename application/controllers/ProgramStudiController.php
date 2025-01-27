@@ -1,6 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 use Ramsey\Uuid\Uuid;
+/**
+ *  @property ProgramStudi $ProgramStudi
+ *  @property User $User
+ * @property CI_Form_validation $form_validation
+ * @property CI_Input $input
+ * @property  CI_Session $session
+ */
 class ProgramStudiController extends CI_Controller
 {
     public function __construct()
