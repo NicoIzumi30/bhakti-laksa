@@ -11,7 +11,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6 col-md-12 col-xl-5">
-                                    <h3 class="mb-2">19</h3>
+                                    <h3 class="mb-2"><?= $countMahasiswa; ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6 col-md-12 col-xl-5">
-                                    <h3 class="mb-2">108</h3>
+                                    <h3 class="mb-2"><?= $countMahasiswaHasGrade; ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -37,11 +37,11 @@
                         <div class="card-header bg-primary"></div>
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-baseline">
-                                <h4 class="card-title mb-0">Belum Di Nilai                                </h4>
+                                <h4 class="card-title mb-0">Belum Di Nilai</h4>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6 col-md-12 col-xl-5">
-                                    <h3 class="mb-2">10,301</h3>
+                                    <h3 class="mb-2"><?= $countMahasiswa - $countMahasiswaHasGrade; ?></h3>
                                 </div>
                             </div>
                         </div>
@@ -80,10 +80,10 @@
                 <div class="card-header">
                     <div class="row d-flex justify-content-between">
                         <div class="col-auto">
-                            <h4 class="">Data Penilaian Backend Web Development</h4>
+                            <h4 class="">Data Penilaian <?= $matakuliah->name; ?></h4>
                         </div>
                         <div class="col-auto">
-                            <a href="<?= base_url('penilaian/create/12') ?>" class="btn btn-primary btn-sm">Create
+                            <a href="<?= base_url('penilaian/create/'.$matakuliah->id) ?>" class="btn btn-primary btn-sm">Create
                                 Data</a>
                                 <a data-bs-toggle="modal" data-bs-target="#importData" class="btn btn-success btn-sm">Import
                                 Data</a>
@@ -104,17 +104,23 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                 $no=1; 
+                                 foreach($students as $student): 
+                                    $nilai = total_nilai($matakuliah->id, $student->student_id);
+                                 ?>
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Heru Kristanto</td>
-                                    <td>23.01.5047</td>
-                                    <td>80</td>
-                                    <td>B</td>
+                                    <td class="text-center"><?= $no++; ?></td>
+                                    <td><?= $student->name ?></td>
+                                    <td><?= $student->nim ?></td>
+                                    <td><?= $nilai['total'] ?></td>
+                                    <td><?= $nilai['gradeCategory']; ?></td>
                                     <td class="text-center">
-                                        <a href="<?= base_url('penilaian/edit/12') ?>" class="btn btn-primary btn-sm">Edit</a>
-                                        <a href="#" class="btn btn-danger btn-sm btn-delete">Delete</a>
+                                        <a href="<?= base_url('penilaian/edit/'.$student->student_id.'/'.$matakuliah->id) ?>" class="btn btn-primary btn-sm">Edit</a>
+                                        <a href="<?=base_url('penilaian/delete/'.$student->student_id.'/'.$matakuliah->id)?>" class="btn btn-danger btn-sm btn-delete">Delete</a>
                                     </td>
                                 </tr>
+                                <?php endforeach;?>
                             </tbody>
                         </table>
                     </div>

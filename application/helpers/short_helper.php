@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 if (!function_exists('success_notification')) {
     function success_notification($message)
     {
@@ -69,3 +70,30 @@ if (!function_exists('get_last_id')) {
         return $last_id->id;
     }
 }
+
+
+if (!function_exists('total_nilai')) {
+    function total_nilai($lecture_id, $student_id){
+        $ci =& get_instance();
+        $ci->load->model('MataKuliah');
+        $ci->load->model('Penilaian');
+        $checkGrade = $ci->Penilaian->checkHasGrade($student_id, $lecture_id);
+        if($checkGrade == false){
+            return ['total' => 'Belum Di Nilai','gradeCategory'=> '-'];
+        }else{
+            $presentaseNilai = $ci->MataKuliah->getPresentase($lecture_id);
+            $presensi = round(($ci->Penilaian->getPresensiGrade($student_id, $lecture_id)/100)*$presentaseNilai->attendance, 2);
+            $uts = round(($ci->Penilaian->getUtsGrade($student_id, $lecture_id)/100)*$presentaseNilai->uts, 2);
+            $uas = round(($ci->Penilaian->getUasGrade($student_id, $lecture_id)/100)*$presentaseNilai->uas, 2);
+            $responsi = round(($ci->Penilaian->getResponsiGrade($student_id, $lecture_id)/200)*$presentaseNilai->responsi, 2);
+            $materi = round(($ci->Penilaian->getMateriGrade($student_id, $lecture_id)/1400)*$presentaseNilai->discussion, 2);
+            $praktikum = round(($ci->Penilaian->getPraktikumGrade($student_id, $lecture_id)/1400)*$presentaseNilai->task, 2);
+            $total = $presensi+$uts+$uas+$responsi+$materi+$praktikum;
+            return [
+                'total' => $total,
+                'gradeCategory' => $total >= 80? 'A' : ($total >= 70? 'B' : ($total >= 60? 'C' : ($total >= 50? 'D' : 'E'))),
+            ];
+        }
+    }
+}
+

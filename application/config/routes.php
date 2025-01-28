@@ -89,7 +89,7 @@ $route['penilaian'] = 'PenilaianController';
 $route['penilaian/create/(:any)'] = 'PenilaianController/create/$1';
 $route['penilaian/detail/(:any)'] = 'PenilaianController/detail/$1';
 $route['penilaian/store'] = 'PenilaianController/store';
-$route['penilaian/edit/(:any)'] = 'PenilaianController/edit/$1';
+$route['penilaian/edit/(:any)/(:any)'] = 'PenilaianController/edit/$1/$2';
 $route['penilaian/update/(:any)'] = 'PenilaianController/update/$1';
 $route['penilaian/delete/(:any)'] = 'PenilaianController/destroy/$1';
 

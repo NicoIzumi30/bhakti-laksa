@@ -5,6 +5,7 @@ class Mahasiswa extends CI_Model
 {
 
     private $table = 'students';
+    private $table2 = 'student_courses';
 
     public function create($data)
     {
@@ -60,4 +61,8 @@ class Mahasiswa extends CI_Model
         return $this->db->count_all($this->table);
     }
 
+    public function countMahasiswaByMataKuliah($id){
+        $this->db->where('lecture_id', $id);
+        return $this->db->count_all_results($this->table2);
+    } 
 }

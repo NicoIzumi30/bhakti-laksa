@@ -10,77 +10,84 @@
                         </div>
                     </div>
                 </div>
-                <form action="<?= base_url('mata-kuliah/store') ?>" method="post">
+                <form action="<?= base_url('penilaian/edit/' . $student->id . '/' . $matakuliah->id . '') ?>" method="post">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Mata Kuliah</label>
-                                    <input type="text" class="form-control" value="Backend Web Development" id="nama" autocomplete="off" disabled>
+                                    <input type="text" class="form-control" value="<?= $matakuliah->name ?>" id="nama"
+                                        autocomplete="off" disabled>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Mahasiswa</label>
-                                    <input type="text" class="form-control" value="Heru Kristanto" id="nama" autocomplete="off" disabled>
+                                    <input type="text" class="form-control" value="<?= $student->name ?>" id="nama"
+                                        autocomplete="off" disabled>
                                 </div>
                             </div>
-                            <p class="my-2 fw-bold">Nilai Presensi (8%)</p>
+                            <p class="my-2 fw-bold">Nilai Presensi (<?=$presentase->attendance?>%)</p>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="presensi" class="form-label">Nilai Presensi</label>
-                                    <input type="text" class="form-control numeric-input" name="presensi" id="presensi" autocomplete="off">
+                                    <input type="text" class="form-control numeric-input" name="presensi" id="presensi"
+                                        maxlength="3" value="<?= $presensi->grade ?>" autocomplete="off">
                                 </div>
                             </div>
                             <p class="my-2 fw-bold">Nilai Ujian</p>
                             <hr>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nilai UTS (30%)</label>
-                                    <input type="text" class="form-control numeric-input" name="uts" id="nama" autocomplete="off">
+                                    <label for="nama" class="form-label">Nilai UTS (<?=$presentase->uts?>%)</label>
+                                    <input type="text" class="form-control numeric-input" name="uts" id="nama"
+                                        maxlength="3" value="<?= $uts->grade ?>" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nilai UAS(30%)</label>
-                                    <input type="text" class="form-control numeric-input" name="uas" id="nama" autocomplete="off">
+                                    <label for="nama" class="form-label">Nilai UAS (<?=$presentase->uas?>%)</label>
+                                    <input type="text" class="form-control numeric-input" name="uas" id="nama"
+                                        maxlength="3" value="<?= $uas->grade ?>" autocomplete="off">
                                 </div>
                             </div>
-                            <p class="my-2 fw-bold">Nilai Responsi (15%)</p>
+                            <p class="my-2 fw-bold">Nilai Responsi (<?=$presentase->responsi?>%)</p>
                             <hr>
-                            <div class="col-12 col-md-6">
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nilai Responsi 1</label>
-                                    <input type="text" class="form-control numeric-input" name="responsi1" id="nama" autocomplete="off">
+                            <?php foreach ($responsi as $res): ?>
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-3">
+                                        <label for="nama" class="form-label">Nilai Responsi <?= $res->position; ?></label>
+                                        <input type="text" class="form-control numeric-input" name="responsi[]" id="nama"
+                                            maxlength="3" value="<?= $res->grade ?>" autocomplete="off">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nilai Responsi 2</label>
-                                    <input type="text" class="form-control numeric-input" name="responsi2" id="nama" autocomplete="off">
-                                </div>
-                            </div>
-                            <p class="my-2 fw-bold">Nilai Diskusi Materi (10%)</p>
-                            <hr>
-                            <?php for($i = 1; $i <= 14; $i++) : ?>
-                            <div class="col-12 col-md-2">
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Pertemuan <?= $i ?></label>
-                                    <input type="text" class="form-control numeric-input" name="materi[]" id="nama" autocomplete="off">
-                                </div>
-                            </div>
-                            <?php endfor ?>
-                            <p class="my-2 fw-bold">Nilai Praktikum(10%)</p>
-                            <hr>
-                            <?php for($i = 1; $i <= 14; $i++) : ?>
-                            <div class="col-12 col-md-2">
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Pertemuan <?= $i ?></label>
-                                    <input type="text" class="form-control numeric-input" name="materi[]" id="nama" autocomplete="off">
-                                </div>
-                            </div>
-                            <?php endfor ?>
-                           
+                            <?php endforeach ?>
+                            <?php if ($matakuliah->learning_type == 'Materi' || $matakuliah->learning_type == 'Materi dan Praktikum'): ?>
+                                <p class="my-2 fw-bold">Nilai Diskusi Materi (<?=$presentase->discussion?>%)</p>
+                                <hr>
+                                <?php foreach ($materi as $mat): ?>
+                                    <div class="col-12 col-md-2">
+                                        <div class="mb-3">
+                                            <label for="nama" class="form-label">Pertemuan <?= $mat->position ?></label>
+                                            <input type="text" class="form-control numeric-input" name="materi[]" id="nama"
+                                                maxlength="3" value="<?= $mat->grade ?>" autocomplete="off">
+                                        </div>
+                                    </div>
+                                <?php endforeach; endif;
+                            if ($matakuliah->learning_type == 'Praktikum' || $matakuliah->learning_type == 'Materi dan Praktikum'):
+                                ?>
+                                <p class="my-2 fw-bold">Nilai Praktikum(<?=$presentase->task?>%)</p>
+                                <hr>
+                                <?php foreach ($praktikum as $prak): ?>
+                                    <div class="col-12 col-md-2">
+                                        <div class="mb-3">
+                                            <label for="nama" class="form-label">Pertemuan <?= $prak->position ?></label>
+                                            <input type="text" class="form-control numeric-input" name="praktikum[]"
+                                                maxlength="3" value="<?= $prak->grade ?>" id="nama" autocomplete="off">
+                                        </div>
+                                    </div>
+                                <?php endforeach; endif ?>
+
                         </div>
                         <div class="card-footer text-end">
                             <a href="<?= base_url('penilaian/detail/12') ?>" class="btn btn-danger mx-1">Kembali</a>

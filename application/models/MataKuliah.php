@@ -118,4 +118,10 @@ class MataKuliah extends CI_Model
             $this->session->set_flashdata('error', 'Data gagal dihapus');
         }
     } 
+    public function getMataKuliahByDosen(){
+        $id = $this->session->userdata('user_id');
+        $this->db->select('id,user_id,name,learning_type');
+        $this->db->where('user_id', $id);
+        return $this->db->get($this->table)->result();
+    } 
 }
