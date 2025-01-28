@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
 if (!function_exists('success_notification')) {
     function success_notification($message)
     {

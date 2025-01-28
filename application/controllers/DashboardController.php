@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ *  @property User $User
+ *  @property Mahasiswa $Mahasiswa
+ *  @property ProgramStudi $ProgramStudi
+ *  @property MataKuliah $MataKuliah
+ */
 class DashboardController extends CI_Controller {
     public function __construct() {
         parent::__construct();

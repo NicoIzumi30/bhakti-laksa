@@ -1,7 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 use Ramsey\Uuid\Uuid;
-
+/**
+ *  @property Mahasiswa $Mahasiswa
+ *  @property ProgramStudi $ProgramStudi
+ *  @property MataKuliah $MataKuliah
+ * @property CI_Form_validation $form_validation
+ * @property CI_Input $input
+ * @property  CI_Session $session
+ */
 class MahasiswaController extends CI_Controller {
     public function __construct() {
         parent::__construct();
