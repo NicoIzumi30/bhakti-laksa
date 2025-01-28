@@ -14,6 +14,7 @@ class MahasiswaController extends CI_Controller {
         parent::__construct();
         $this->load->model('Mahasiswa');
         $this->load->model('ProgramStudi');
+        middleware_admin();
     }
     public function index(){
         $data['data'] = $this->Mahasiswa->getAll();

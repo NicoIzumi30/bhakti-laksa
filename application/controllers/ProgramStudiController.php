@@ -14,6 +14,7 @@ class ProgramStudiController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('ProgramStudi');
+        middleware_admin();
     }
     public function index()
     {

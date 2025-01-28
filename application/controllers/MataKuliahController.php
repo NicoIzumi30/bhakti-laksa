@@ -18,6 +18,7 @@ class MataKuliahController extends CI_Controller
         $this->load->model('Mahasiswa');
         $this->load->model('ProgramStudi');
         $this->load->model('User');
+        middleware_admin();
     }
     public function index()
     {

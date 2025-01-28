@@ -15,6 +15,7 @@ class DosenController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User');
+        middleware_admin();
     }
     public function index()
     {

@@ -94,5 +94,17 @@ if (!function_exists('total_nilai')) {
             ];
         }
     }
+    if (!function_exists('middleware_admin')) {
+        function middleware_admin()
+        {
+            $ci =& get_instance();
+            $role = $ci->session->userdata('user_role');
+            if($role == 'administrator') {
+                return true;
+            }else{
+                redirect('/dashboard/');
+            }
+        }
+    }
 }
 
